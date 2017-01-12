@@ -1,5 +1,6 @@
 #include "solve.h"
 #include <vector>
+#include <algorithm>
 /*
  問題1.6　三角形
  n本の棒があります。棒iの長さはa(i)です。あなたはそれらの棒から
@@ -12,5 +13,29 @@
  */
 int calc_max_perimeter(int n, std::vector<int> a)
 {
+	if (n < 3 || 100 < n)
+	{
+		return 0;
+	}
+	for (int ai : a)
+	{
+		if (ai < 1 || 1000000 < ai)
+		{
+			return 0;
+		}
+	}
+	if (n != (int)a.size())
+	{
+		return 0;
+	}
+	std::sort(a.begin(), a.end(), std::greater<int>()); // 降順(5,4,3,...)
+	for (int i = 0; i < (int)a.size()-2; ++i)
+	{
+		if (a[i] < a[i+1] + a[i+2])
+		{
+			return a[i] + a[i+1] + a[i+2];
+		}
+	}
+
 	return 0;
 }
