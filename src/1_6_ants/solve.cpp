@@ -19,38 +19,38 @@
 
 namespace
 {
-	/** 
-	 * @brief get max time until all ants fall
-	 * 
-	 * @param[in] L : a length of pole
-	 * @param[in] n : a count of ants
-	 * @param[in] x : positions of ants
-	 * 
-	 * @return a validity of variables
-	 */
-	bool is_valid_fall_ants_time_inputs(int L, int n, const std::vector<int> & x)
-	{
-		if (L < 1 || 1000000 < L)
-		{
-			return false;
-		}
-		if (n < 1 || 1000000 < n)
-		{
-			return false;
-		}
-		if ((int)x.size() != n)
-		{
-			return false;
-		}
-		for (int xi : x)
-		{
-			if (xi < 1 || L < xi)
-			{
-				return false;
-			}
-		}
-		return true;
-	}
+    /** 
+     * @brief get max time until all ants fall
+     * 
+     * @param[in] L : a length of pole
+     * @param[in] n : a count of ants
+     * @param[in] x : positions of ants
+     * 
+     * @return a validity of variables
+     */
+    bool is_valid_fall_ants_time_inputs(int L, int n, const std::vector<int> & x)
+    {
+        if (L < 1 || 1000000 < L)
+        {
+            return false;
+        }
+        if (n < 1 || 1000000 < n)
+        {
+            return false;
+        }
+        if ((int)x.size() != n)
+        {
+            return false;
+        }
+        for (int xi : x)
+        {
+            if (xi < 1 || L < xi)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
 }
 
 /** 
@@ -64,19 +64,19 @@ namespace
  */
 int calc_fall_ants_max_time(int L, int n, const std::vector<int> & x)
 {
-	if (is_valid_fall_ants_time_inputs(L, n, x) == false)
-	{
-		return -1;
-	}
+    if (is_valid_fall_ants_time_inputs(L, n, x) == false)
+    {
+        return -1;
+    }
 
-	// calc max time
-	int max_time = 0;
-	for (int xi : x)
-	{
-		int xi_max_time = std::max(xi, L-xi);
-		max_time = std::max(max_time, xi_max_time);
-	}
-	return max_time;
+    // calc max time
+    int max_time = 0;
+    for (int xi : x)
+    {
+        int xi_max_time = std::max(xi, L-xi);
+        max_time = std::max(max_time, xi_max_time);
+    }
+    return max_time;
 }
 
 /** 
@@ -90,18 +90,18 @@ int calc_fall_ants_max_time(int L, int n, const std::vector<int> & x)
  */
 int calc_fall_ants_min_time(int L, int n, const std::vector<int> & x)
 {
-	// check variables
-	if (is_valid_fall_ants_time_inputs(L, n, x) == false)
-	{
-		return -1;
-	}
+    // check variables
+    if (is_valid_fall_ants_time_inputs(L, n, x) == false)
+    {
+        return -1;
+    }
 
-	// calc min time
-	int min_time = 0;
-	for (int xi : x)
-	{
-		int xi_min_time = std::min(xi, L-xi);
-		min_time = std::max(min_time, xi_min_time);
-	}
-	return min_time;
+    // calc min time
+    int min_time = 0;
+    for (int xi : x)
+    {
+        int xi_min_time = std::min(xi, L-xi);
+        min_time = std::max(min_time, xi_min_time);
+    }
+    return min_time;
 }
