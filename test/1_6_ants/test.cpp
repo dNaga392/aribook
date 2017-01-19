@@ -5,30 +5,30 @@
 
 class Test : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
 private slots:
-	void test();
+    void test();
 };
 
 void Test::test()
 {
-	// <ex>
-	// L = 10
-	// n = 3
-	// a = {2, 6, 7}
-	// => min : 4 (left, right, right)
-	// => max : 8 (right, right, right)
-	int L = 10;
-	int n = 3;
-	std::vector<int> x;
-	x.push_back(2);
-	x.push_back(6);
-	x.push_back(7);
+    // <ex>
+    // L = 10
+    // n = 3
+    // a = {2, 6, 7}
+    // => min : 4 (left, right, right)
+    // => max : 8 (right, right, right)
+    int L = 10;
+    int n = 3;
+    std::vector<int> x;
+    x.push_back(2);
+    x.push_back(6);
+    x.push_back(7);
 
-	int min = 4;
-	int max = 8;
-	QCOMPARE(calc_fall_ants_min_time(L, n, x), min);
-	QCOMPARE(calc_fall_ants_max_time(L, n, x), max);
+    int min = 4;
+    int max = 8;
+    QCOMPARE(calc_fall_ants_min_time(L, n, x), min);
+    QCOMPARE(calc_fall_ants_max_time(L, n, x), max);
 }
 
 QTEST_MAIN(Test)
