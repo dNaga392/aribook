@@ -11,7 +11,7 @@
 # êßñÒ
 #  1 <= L <= 10^6
 #  1 <= n <= 10^6
-#  1 <= x(i) <= L
+#  0 <= x(i) <= L
 
 
 def __is_valid_fall_ants_time_inputs(L: int, n: int, x: tuple) -> bool:
@@ -22,7 +22,7 @@ def __is_valid_fall_ants_time_inputs(L: int, n: int, x: tuple) -> bool:
     if n != len(x):
         return False
     for xi in x:
-        if xi < 1 or L < xi:
+        if xi < 0 or L < xi:
             return False
     return True
 
@@ -33,6 +33,8 @@ def calc_fall_ants_max_time(L: int, n: int, x: tuple) -> int:
     max_time = 0
     for xi in x:
         xi_max_time = max(xi, L-xi)
+        if xi in (0, L):
+            xi_max_time = 0
         max_time = max(max_time, xi_max_time)
     return max_time
 
@@ -43,6 +45,8 @@ def calc_fall_ants_min_time(L: int, n: int, x: tuple) -> int:
     min_time = 0
     for xi in x:
         xi_min_time = min(xi, L-xi)
+        if xi in (0, L):
+            xi_min_time = 0
         min_time = max(min_time, xi_min_time)
     return min_time
 
@@ -50,3 +54,5 @@ def calc_fall_ants_min_time(L: int, n: int, x: tuple) -> int:
 if __name__ == "__main__":
     assert calc_fall_ants_min_time(10, 3, (2, 6, 7)) == 4, "case min error"
     assert calc_fall_ants_max_time(10, 3, (2, 6, 7)) == 8, "case max error"
+    assert calc_fall_ants_min_time(10, 3, (0, 6, 10)) == 4, "case min error"
+    assert calc_fall_ants_max_time(10, 3, (0, 6, 10)) == 6, "case max error"
