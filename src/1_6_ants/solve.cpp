@@ -105,3 +105,4 @@ int calc_fall_ants_min_time(int L, int n, const std::vector<int> & x)
     }
     return min_time;
 }
+
