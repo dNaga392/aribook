@@ -14,7 +14,7 @@
  制約
   1 <= L <= 10^6
   1 <= n <= 10^6
-  1 <= x(i) <= L
+  0 <= x(i) <= L
  */
 
 namespace
@@ -44,7 +44,7 @@ namespace
         }
         for (int xi : x)
         {
-            if (xi < 1 || L < xi)
+            if (xi < 0 || L < xi)
             {
                 return false;
             }
