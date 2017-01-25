@@ -73,7 +73,8 @@ int calc_fall_ants_max_time(int L, int n, const std::vector<int> & x)
     int max_time = 0;
     for (int xi : x)
     {
-        int xi_max_time = std::max(xi, L-xi);
+		bool was_falled = (xi == 0 || xi == L);
+        int xi_max_time = was_falled ? 0 : std::max(xi, L-xi);
         max_time = std::max(max_time, xi_max_time);
     }
     return max_time;
@@ -100,7 +101,8 @@ int calc_fall_ants_min_time(int L, int n, const std::vector<int> & x)
     int min_time = 0;
     for (int xi : x)
     {
-        int xi_min_time = std::min(xi, L-xi);
+		bool was_falled = (xi == 0 || xi == L);
+        int xi_min_time = was_falled ? 0 : std::min(xi, L-xi);
         min_time = std::max(min_time, xi_min_time);
     }
     return min_time;
