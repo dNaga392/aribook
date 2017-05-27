@@ -1,6 +1,3 @@
-#include "solve.h"
-#include <vector>
-#include <cmath>
 /*
  問題 Ants (POJ No.1852)
  長さLcmの竿の上をn匹のアリが毎秒1cmのスピードで歩いています。
@@ -16,6 +13,9 @@
   1 <= n <= 10^6
   0 <= x(i) <= L
  */
+#include "solve.h"
+#include <vector>
+#include <cmath>
 
 namespace
 {
@@ -73,7 +73,7 @@ int calc_fall_ants_max_time(int L, int n, const std::vector<int> & x)
     int max_time = 0;
     for (int xi : x)
     {
-		bool was_falled = (xi == 0 || xi == L);
+        bool was_falled = (xi == 0 || xi == L);
         int xi_max_time = was_falled ? 0 : std::max(xi, L-xi);
         max_time = std::max(max_time, xi_max_time);
     }
@@ -101,10 +101,9 @@ int calc_fall_ants_min_time(int L, int n, const std::vector<int> & x)
     int min_time = 0;
     for (int xi : x)
     {
-		bool was_falled = (xi == 0 || xi == L);
+        bool was_falled = (xi == 0 || xi == L);
         int xi_min_time = was_falled ? 0 : std::min(xi, L-xi);
         min_time = std::max(min_time, xi_min_time);
     }
     return min_time;
 }
-
