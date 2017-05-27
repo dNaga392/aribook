@@ -8,5 +8,5 @@ INCLUDEPATH += .
 QT += testlib
 
 # Input
-HEADERS += ../../src/1_1_kujibiki/solve.h
-SOURCES += test.cpp ../../src/1_1_kujibiki/solve.cpp
+HEADERS += ../src/solve.h
+SOURCES += test.cpp ../src/solve.cpp

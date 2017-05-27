@@ -1,6 +1,3 @@
-#include "solve.h"
-#include <vector>
-#include <algorithm>
 /*
  –â‘è1.6@OŠpŒ`
  n–{‚Ì–_‚ª‚ ‚è‚Ü‚·B–_i‚Ì’·‚³‚Ía(i)‚Å‚·B‚ ‚È‚½‚Í‚»‚ê‚ç‚Ì–_‚©‚ç
@@ -11,31 +8,35 @@
   3 <= n <= 100
   1 <= a(i) <= 10^6
  */
+#include "solve.h"
+#include <vector>
+#include <algorithm>
+
 int calc_max_perimeter(int n, std::vector<int> a)
 {
-	if (n < 3 || 100 < n)
-	{
-		return 0;
-	}
-	for (int ai : a)
-	{
-		if (ai < 1 || 1000000 < ai)
-		{
-			return 0;
-		}
-	}
-	if (n != (int)a.size())
-	{
-		return 0;
-	}
-	std::sort(a.begin(), a.end(), std::greater<int>()); // ~‡(5,4,3,...)
-	for (int i = 0; i < (int)a.size()-2; ++i)
-	{
-		if (a[i] < a[i+1] + a[i+2])
-		{
-			return a[i] + a[i+1] + a[i+2];
-		}
-	}
+    if (n < 3 || 100 < n)
+    {
+        return 0;
+    }
+    for (int ai : a)
+    {
+        if (ai < 1 || 1000000 < ai)
+        {
+            return 0;
+        }
+    }
+    if (n != (int)a.size())
+    {
+        return 0;
+    }
+    std::sort(a.begin(), a.end(), std::greater<int>()); // ~‡(5,4,3,...)
+    for (int i = 0; i < (int)a.size()-2; ++i)
+    {
+        if (a[i] < a[i+1] + a[i+2])
+        {
+            return a[i] + a[i+1] + a[i+2];
+        }
+    }
 
-	return 0;
+    return 0;
 }

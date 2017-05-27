@@ -3,10 +3,10 @@
 ######################################################################
 
 TEMPLATE = app
-TARGET = test16
+TARGET = test
 INCLUDEPATH += .
 QT += testlib
 
 # Input
-HEADERS += ../../src/1_6/solve.h
-SOURCES += test16.cpp ../../src/1_6/solve.cpp
+HEADERS += ../src/solve.h
+SOURCES += test.cpp ../src/solve.cpp

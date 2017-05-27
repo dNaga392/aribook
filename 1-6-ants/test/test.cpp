@@ -1,7 +1,7 @@
 #include <QtTest/QtTest>
 #include <vector>
+#include "../src/solve.h"
 
-#include "../../src/1_6_ants/solve.h"
 
 class Test : public QObject
 {

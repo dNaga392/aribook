@@ -14,7 +14,6 @@
   0 <= k(i) <= 10^8
  */
 #include "solve.h"
-
 #include <iostream>
 
 
@@ -72,4 +71,3 @@ void show_winnable_kujibiki(int n, int m, const std::vector<int> &k)
     }
     std::cout << "No" << std::endl;
 }
-
