@@ -4,10 +4,10 @@
 
 class Test : public QObject
 {
-    Q_OBJECT
+	Q_OBJECT
 private slots:
-    void test_data();
-    void test();
+	void test_data();
+	void test();
 };
 
 void Test::test_data()
@@ -42,7 +42,7 @@ void Test::test()
 	k.push_back(3);
 	k.push_back(5);
 
-    QCOMPARE(is_winnable_kujibiki(n, m, k), expected);
+	QCOMPARE(is_winnable_kujibiki(n, m, k), expected);
 }
 
 QTEST_MAIN(Test)
